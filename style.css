@@ -12,15 +12,6 @@
 
 * { box-sizing: border-box; }
 
-body {
-  min-width: 320px;
-  margin: 0;
-  color: var(--ink);
-  background: var(--canvas);
-  font-family: "DM Sans", sans-serif;
-  font-size: 13px;
-}
-
 button, select { font: inherit; }
 button, select { cursor: pointer; }
 
