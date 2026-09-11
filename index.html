@@ -33,26 +33,36 @@
         <section class="panel settings-panel">
           <label class="field">
             <span>Language</span>
-            <select>
-              <option>🇺🇸 English</option>
+            <select id="language-select" name="language">
+              <option value="en-US">🇺🇸 English</option>
+              <option value="es-ES">🇪🇸 Español</option>
+              <option value="de-DE">🇩🇪 Deutsch</option>
             </select>
           </label>
           <label class="field">
             <span>Time unit</span>
-            <select>
-              <option>Week</option>
+            <select id="time-unit" name="time-unit">
+              <option value="week">Week</option>
+              <option value="month">Month</option>
+              <option value="day">Day</option>
             </select>
           </label>
           <label class="field">
             <span>Number of periods</span>
             <select id="period-count" name="period-count">
-              <option>12</option>
+              <option value="4">4</option>
+              <option value="8">8</option>
+              <option value="12" selected>12</option>
+              <option value="16">16</option>
+              <option value="24">24</option>
             </select>
           </label>
           <label class="field">
             <span>Currency</span>
-            <select>
-              <option>$ &nbsp; USD</option>
+            <select id="currency-select" name="currency">
+              <option value="USD">$ &nbsp; USD</option>
+              <option value="EUR">€ &nbsp; EUR</option>
+              <option value="GBP">£ &nbsp; GBP</option>
             </select>
           </label>
         </section>
@@ -85,7 +95,7 @@
               <i style="--height: 78%"></i><i style="--height: 84%"></i><i style="--height: 91%"></i><i style="--height: 98%"></i>
             </span>
           </div>
-          <p class="chart-caption">Period</p>
+          <p id="chart-caption" class="chart-caption">Week</p>
         </section>
 
         <section class="metric-section">
@@ -123,7 +133,7 @@
           <h2>Campaign summary</h2>
           <p>Profitable in week #1</p>
           <hr />
-          <h3>At week #12:</h3>
+          <h3>At <span id="summary-time-unit">week</span> #<span id="summary-period-count">12</span>:</h3>
           <dl>
             <div><dt>Customers:</dt><dd id="summary-clients">82</dd></div>
             <div><dt>Leads:</dt><dd id="summary-leads">400</dd></div>
