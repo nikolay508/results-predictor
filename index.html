@@ -45,7 +45,7 @@
           </label>
           <label class="field">
             <span>Number of periods</span>
-            <select>
+            <select id="period-count" name="period-count">
               <option>12</option>
             </select>
           </label>
@@ -110,10 +110,10 @@
         <section class="metric-section">
           <h2>Expenses</h2>
           <div class="metric-grid">
-            <article class="panel metric-card"><h3>Customer churn rate <span>?</span></h3><output>0.02</output><div class="slider-track"><b style="width: 3%"></b></div></article>
-            <article class="panel metric-card"><h3>Variable cost <span>?</span></h3><output>10.8</output><div class="slider-track"><b style="width: 3%"></b></div></article>
-            <article class="panel metric-card"><h3>Fixed costs <span>?</span></h3><output>175</output><div class="slider-track"><b style="width: 18%"></b></div></article>
-            <article class="panel metric-card"><h3>Starting cost <span>?</span></h3><output>0</output><div class="slider-track"><b style="width: 3%"></b></div></article>
+            <label class="panel metric-card" for="customer-churn-rate"><span class="metric-label">Customer churn rate</span><output id="customer-churn-rate-output">2%</output><input id="customer-churn-rate" name="customer-churn-rate" type="number" min="0" max="100" step="1" value="2" /></label>
+            <label class="panel metric-card" for="variable-cost"><span class="metric-label">Variable cost per client</span><output id="variable-cost-output">$10.80</output><input id="variable-cost" name="variable-cost" type="number" min="0" step="0.1" value="10.8" /></label>
+            <label class="panel metric-card" for="fixed-costs"><span class="metric-label">Fixed costs</span><output id="fixed-costs-output">$175</output><input id="fixed-costs" name="fixed-costs" type="number" min="0" step="25" value="175" /></label>
+            <label class="panel metric-card" for="starting-cost"><span class="metric-label">Starting cost</span><output id="starting-cost-output">$0</output><input id="starting-cost" name="starting-cost" type="number" min="0" step="25" value="0" /></label>
           </div>
         </section>
       </section>
@@ -125,15 +125,15 @@
           <hr />
           <h3>At week #12:</h3>
           <dl>
-            <div><dt>Customers:</dt><dd id="summary-clients">100</dd></div>
+            <div><dt>Customers:</dt><dd id="summary-clients">82</dd></div>
             <div><dt>Leads:</dt><dd id="summary-leads">400</dd></div>
             <div><dt>Prospects:</dt><dd id="summary-prospects">4,000</dd></div>
-            <div><dt>Revenue:</dt><dd class="positive">$39,558.73</dd></div>
-            <div><dt>Expenses:</dt><dd class="negative">$8,693.12</dd></div>
+            <div><dt>Revenue:</dt><dd id="summary-revenue" class="positive">$8,200.00</dd></div>
+            <div><dt>Expenses:</dt><dd id="summary-expenses" class="negative">$1,060.60</dd></div>
           </dl>
-          <div class="summary-stat"><span>Total profit</span><strong>$30,865.61</strong></div>
-          <div class="summary-stat"><span>Average retention</span><strong>50.00 weeks</strong></div>
-          <div class="summary-stat"><span>Return on investment</span><strong>355.06%</strong></div>
+          <div class="summary-stat"><span>Total profit</span><strong id="summary-profit">$7,139.40</strong></div>
+          <div class="summary-stat"><span>Average retention</span><strong id="summary-retention">10.00 weeks</strong></div>
+          <div class="summary-stat"><span>Return on investment</span><strong id="summary-roi">673.25%</strong></div>
         </section>
         <section class="panel action-panel"><h2>Export data <span>↓</span></h2><button class="button green">↓ &nbsp; Download CSV</button></section>
         <section class="panel action-panel"><h2>Load data <span>↑</span></h2><button class="button blue">↑ &nbsp; Load CSV</button></section>
