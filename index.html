@@ -15,6 +15,7 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="style.css" />
+    <script src="script.js" defer></script>
   </head>
   <body>
     <main class="dashboard-shell">
@@ -90,10 +91,19 @@
         <section class="metric-section">
           <h2>Revenue</h2>
           <div class="metric-grid">
-            <article class="panel metric-card"><h3>Launching customers <span>?</span></h3><output>119</output><div class="slider-track"><b style="width: 14%"></b></div></article>
-            <article class="panel metric-card"><h3>Revenue per conversion <span>?</span></h3><output>64.8</output><div class="slider-track"><b style="width: 7%"></b></div></article>
-            <article class="panel metric-card"><h3>Customer growth rate <span>?</span></h3><output>0.15</output><div class="slider-track"><b style="width: 17%"></b></div></article>
-            <article class="panel metric-card"><h3>Average response rate <span>?</span></h3><output>0.2</output><div class="slider-track"><b style="width: 22%"></b></div></article>
+            <label class="panel metric-card" for="revenue-target"><span class="metric-label">Target revenue</span><output id="revenue-target-output">$10,000</output><input id="revenue-target" name="revenue-target" type="number" min="0" step="100" value="10000" /></label>
+            <label class="panel metric-card" for="average-order-value"><span class="metric-label">Average order value</span><output id="average-order-value-output">$100</output><input id="average-order-value" name="average-order-value" type="number" min="0.01" step="1" value="100" /></label>
+            <label class="panel metric-card" for="lead-response-rate"><span class="metric-label">Response rate from leads</span><output id="lead-response-rate-output">25%</output><input id="lead-response-rate" name="lead-response-rate" type="number" min="0.01" max="100" step="1" value="25" /></label>
+            <label class="panel metric-card" for="prospect-response-rate"><span class="metric-label">Response rate from prospects</span><output id="prospect-response-rate-output">10%</output><input id="prospect-response-rate" name="prospect-response-rate" type="number" min="0.01" max="100" step="1" value="10" /></label>
+          </div>
+        </section>
+
+        <section class="metric-section calculator-results" aria-live="polite">
+          <h2>Campaign requirements</h2>
+          <div class="result-grid">
+            <article class="panel result-card"><span>Required clients</span><strong id="clients-result">100</strong><small>Revenue ÷ average order value</small></article>
+            <article class="panel result-card"><span>Required leads</span><strong id="leads-result">400</strong><small>Clients × 100 ÷ lead response rate</small></article>
+            <article class="panel result-card"><span>Required prospects</span><strong id="prospects-result">4,000</strong><small>Leads × 100 ÷ prospect response rate</small></article>
           </div>
         </section>
 
@@ -115,7 +125,9 @@
           <hr />
           <h3>At week #12:</h3>
           <dl>
-            <div><dt>Customers:</dt><dd>3052</dd></div>
+            <div><dt>Customers:</dt><dd id="summary-clients">100</dd></div>
+            <div><dt>Leads:</dt><dd id="summary-leads">400</dd></div>
+            <div><dt>Prospects:</dt><dd id="summary-prospects">4,000</dd></div>
             <div><dt>Revenue:</dt><dd class="positive">$39,558.73</dd></div>
             <div><dt>Expenses:</dt><dd class="negative">$8,693.12</dd></div>
           </dl>
