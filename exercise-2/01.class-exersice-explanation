@@ -1,0 +1,55 @@
+Class exercise:
+
+Class Figure
+
+01.Constructor
+First the class Figure which is a parent class is created.
+Then the constructor runs automatically when we create a new figure. X and y are the starting coordinates.
+We store the x and y value inside the object.
+
+02.Move method
+This is a method that moves the figure.
+We add the dx value and dy value to the current x and y positions
+
+03.reset position method
+Method that puts the figure back at position (0, 0); We set the x and y coordinates to 0.
+
+04.to string method
+Here we return a string showing the figures data.
+
+05.area method
+This is a method to calculate the area but because figure doesn’t know how to calculate its area we throw an error if someone tries to use it.
+
+06.perimeter method
+This is a method to calculate the perimeter but because figure doesn’t know how to calculate its area we throw an error if someone tries to use it.
+
+Class ColoredSquare
+
+Coloredfigure inherits everything from coloredfigure class. and therefore it also inherits from Figure class.
+
+01.Constructor
+The constructor takes x, y and color and width. super() calls the constructor from the parent class and gets the x, y and color. And we also store the width in the object which is not inherited.
+
+02.to string method
+Here we return a string showing the coloredfigure data about the position and its color.
+
+Class ColoredFigure
+
+Coloredfigure inherits everything from figure class. And the coloredfigure is a type of figure
+
+01.Constructor
+The constructor takes x, y and color. super() calls the constructor from the parent class figure. And we also store the color in the object which is not inherited.
+
+02.area method
+This is a method to calculate the area which for a square is the width * width and returns it.
+
+03.perimeter method
+This is a method to calculate the perimeter which is width * 4 and returns it.
+
+04.to string method
+Here we return a string showing the figures data which is the coordinates x and y its width and its color and returns it.
+
+After we finish with all the classes we have a cs variable which creates a new coloredsquare object. Sets x = 120, y = 80, width = 3 and color = red.
+After that we move the square with 0 and -5 with the move method of the class.
+So dx = 0 and dy = -5.
+And finally we print the squares information (toString method), the area (area method) and perimemeter (perimeter method)
