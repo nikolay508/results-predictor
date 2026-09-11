@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Results Predictor email campaign planning dashboard"
+    />
+    <title>Results Predictor | Email Campaign</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <main class="dashboard-shell">
+      <aside class="left-rail" aria-label="Campaign settings">
+        <a class="brand" href="/" aria-label="Results Predictor home">
+          <span class="brand-mark" aria-hidden="true">
+            <span></span>
+            <span></span>
+            <span></span>
+          </span>
+          <span class="brand-name">Results Predictor</span>
+          <span class="brand-subtitle">Email campaign</span>
+        </a>
+
+        <section class="panel settings-panel">
+          <label class="field">
+            <span>Language</span>
+            <select>
+              <option>🇺🇸 English</option>
+            </select>
+          </label>
+          <label class="field">
+            <span>Time unit</span>
+            <select>
+              <option>Week</option>
+            </select>
+          </label>
+          <label class="field">
+            <span>Number of periods</span>
+            <select>
+              <option>12</option>
+            </select>
+          </label>
+          <label class="field">
+            <span>Currency</span>
+            <select>
+              <option>$ &nbsp; USD</option>
+            </select>
+          </label>
+        </section>
+
+        <section class="panel note-panel">
+          <h2>Would you like to leverage a word-of-mouth vibe in your campaigns?</h2>
+          <p>Word-of-mouth campaigns are always valued by customers. They are a great way to stimulate engagement and reach more people.</p>
+          <a href="#learn-more">Click here to learn more about how to get one.</a>
+        </section>
+
+        <p class="credit">Logo: Designed by <strong>Freepik</strong></p>
+      </aside>
+
+      <section class="main-content" aria-label="Campaign metrics">
+        <section class="panel chart-panel">
+          <div class="section-heading">
+            <h1>Metrics over time</h1>
+            <div class="legend" aria-label="Chart legend">
+              <span><i class="legend-dot profit"></i>Profit</span>
+              <span><i class="legend-dot customers"></i>Customers</span>
+            </div>
+          </div>
+          <div class="chart-placeholder" aria-label="Metrics chart placeholder">
+            <span class="chart-axis axis-y">14</span>
+            <span class="chart-axis axis-x">1</span>
+            <span class="chart-line"></span>
+            <span class="chart-bars" aria-hidden="true">
+              <i style="--height: 28%"></i><i style="--height: 33%"></i><i style="--height: 38%"></i><i style="--height: 44%"></i>
+              <i style="--height: 50%"></i><i style="--height: 56%"></i><i style="--height: 64%"></i><i style="--height: 71%"></i>
+              <i style="--height: 78%"></i><i style="--height: 84%"></i><i style="--height: 91%"></i><i style="--height: 98%"></i>
+            </span>
+          </div>
+          <p class="chart-caption">Period</p>
+        </section>
+
+        <section class="metric-section">
+          <h2>Revenue</h2>
+          <div class="metric-grid">
+            <article class="panel metric-card"><h3>Launching customers <span>?</span></h3><output>119</output><div class="slider-track"><b style="width: 14%"></b></div></article>
+            <article class="panel metric-card"><h3>Revenue per conversion <span>?</span></h3><output>64.8</output><div class="slider-track"><b style="width: 7%"></b></div></article>
+            <article class="panel metric-card"><h3>Customer growth rate <span>?</span></h3><output>0.15</output><div class="slider-track"><b style="width: 17%"></b></div></article>
+            <article class="panel metric-card"><h3>Average response rate <span>?</span></h3><output>0.2</output><div class="slider-track"><b style="width: 22%"></b></div></article>
+          </div>
+        </section>
+
+        <section class="metric-section">
+          <h2>Expenses</h2>
+          <div class="metric-grid">
+            <article class="panel metric-card"><h3>Customer churn rate <span>?</span></h3><output>0.02</output><div class="slider-track"><b style="width: 3%"></b></div></article>
+            <article class="panel metric-card"><h3>Variable cost <span>?</span></h3><output>10.8</output><div class="slider-track"><b style="width: 3%"></b></div></article>
+            <article class="panel metric-card"><h3>Fixed costs <span>?</span></h3><output>175</output><div class="slider-track"><b style="width: 18%"></b></div></article>
+            <article class="panel metric-card"><h3>Starting cost <span>?</span></h3><output>0</output><div class="slider-track"><b style="width: 3%"></b></div></article>
+          </div>
+        </section>
+      </section>
+
+      <aside class="right-rail" aria-label="Campaign summary">
+        <section class="panel summary-panel">
+          <h2>Campaign summary</h2>
+          <p>Profitable in week #1</p>
+          <hr />
+          <h3>At week #12:</h3>
+          <dl>
+            <div><dt>Customers:</dt><dd>3052</dd></div>
+            <div><dt>Revenue:</dt><dd class="positive">$39,558.73</dd></div>
+            <div><dt>Expenses:</dt><dd class="negative">$8,693.12</dd></div>
+          </dl>
+          <div class="summary-stat"><span>Total profit</span><strong>$30,865.61</strong></div>
+          <div class="summary-stat"><span>Average retention</span><strong>50.00 weeks</strong></div>
+          <div class="summary-stat"><span>Return on investment</span><strong>355.06%</strong></div>
+        </section>
+        <section class="panel action-panel"><h2>Export data <span>↓</span></h2><button class="button green">↓ &nbsp; Download CSV</button></section>
+        <section class="panel action-panel"><h2>Load data <span>↑</span></h2><button class="button blue">↑ &nbsp; Load CSV</button></section>
+        <section class="panel connect-panel"><h2>Let's connect <span>⌯</span></h2><div class="social-row"><button aria-label="Facebook">f</button><button aria-label="Instagram">◎</button><button aria-label="Link">↗</button><button aria-label="Facebook">f</button></div></section>
+      </aside>
+    </main>
+  </body>
+</html>
