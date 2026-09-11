@@ -1,4 +1,7 @@
 const calculatorInputs = {
+  language: document.querySelector("#language-select"),
+  timeUnit: document.querySelector("#time-unit"),
+  currency: document.querySelector("#currency-select"),
   revenue: document.querySelector("#revenue-target"),
   averageOrderValue: document.querySelector("#average-order-value"),
   leadResponseRate: document.querySelector("#lead-response-rate"),
@@ -22,6 +25,9 @@ const resultElements = {
   summaryProfit: document.querySelector("#summary-profit"),
   summaryRetention: document.querySelector("#summary-retention"),
   summaryRoi: document.querySelector("#summary-roi"),
+  summaryTimeUnit: document.querySelector("#summary-time-unit"),
+  summaryPeriodCount: document.querySelector("#summary-period-count"),
+  chartCaption: document.querySelector("#chart-caption"),
 };
 
 const outputElements = {
@@ -35,12 +41,25 @@ const outputElements = {
   startingCost: document.querySelector("#starting-cost-output"),
 };
 
-const numberFormatter = new Intl.NumberFormat("en-US", { maximumFractionDigits: 2 });
-const currencyFormatter = new Intl.NumberFormat("en-US", {
-  style: "currency",
-  currency: "USD",
-  maximumFractionDigits: 2,
-});
+let currentLocale = "en-US";
+let currentCurrency = "USD";
+
+function formatNumber(value) {
+  return new Intl.NumberFormat(currentLocale, { maximumFractionDigits: 2 }).format(value);
+}
+
+function formatCurrency(value) {
+  return new Intl.NumberFormat(currentLocale, {
+    style: "currency",
+    currency: currentCurrency,
+    maximumFractionDigits: 2,
+  }).format(value);
+}
+
+function getTimeUnitLabel() {
+  const labels = { week: "week", month: "month", day: "day" };
+  return labels[calculatorInputs.timeUnit.value] || labels.week;
+}
 
 function readPositiveNumber(input) {
   const value = Number(input.value);
@@ -80,29 +99,41 @@ function updateCalculator() {
   const results = calculateCampaign(values);
   const expenses = calculateExpenses({ ...values, clients: results.clients });
 
-  outputElements.revenue.textContent = currencyFormatter.format(values.revenue);
-  outputElements.averageOrderValue.textContent = currencyFormatter.format(values.averageOrderValue);
-  outputElements.leadResponseRate.textContent = `${numberFormatter.format(values.leadResponseRate)}%`;
-  outputElements.prospectResponseRate.textContent = `${numberFormatter.format(values.prospectResponseRate)}%`;
-  outputElements.customerChurnRate.textContent = `${numberFormatter.format(values.customerChurnRate)}%`;
-  outputElements.variableCost.textContent = currencyFormatter.format(values.variableCost);
-  outputElements.fixedCosts.textContent = currencyFormatter.format(values.fixedCosts);
-  outputElements.startingCost.textContent = currencyFormatter.format(values.startingCost);
+  outputElements.revenue.textContent = formatCurrency(values.revenue);
+  outputElements.averageOrderValue.textContent = formatCurrency(values.averageOrderValue);
+  outputElements.leadResponseRate.textContent = `${formatNumber(values.leadResponseRate)}%`;
+  outputElements.prospectResponseRate.textContent = `${formatNumber(values.prospectResponseRate)}%`;
+  outputElements.customerChurnRate.textContent = `${formatNumber(values.customerChurnRate)}%`;
+  outputElements.variableCost.textContent = formatCurrency(values.variableCost);
+  outputElements.fixedCosts.textContent = formatCurrency(values.fixedCosts);
+  outputElements.startingCost.textContent = formatCurrency(values.startingCost);
 
-  resultElements.clients.textContent = numberFormatter.format(results.clients);
-  resultElements.leads.textContent = numberFormatter.format(results.leads);
-  resultElements.prospects.textContent = numberFormatter.format(results.prospects);
-  resultElements.summaryClients.textContent = numberFormatter.format(expenses.projectedCustomers);
-  resultElements.summaryLeads.textContent = numberFormatter.format(results.leads);
-  resultElements.summaryProspects.textContent = numberFormatter.format(results.prospects);
-  resultElements.summaryRevenue.textContent = currencyFormatter.format(values.revenue * Math.pow(1 - values.customerChurnRate / 100, values.periods));
-  resultElements.summaryExpenses.textContent = currencyFormatter.format(expenses.expenses);
-  resultElements.summaryProfit.textContent = currencyFormatter.format(expenses.profit);
-  resultElements.summaryRetention.textContent = `${numberFormatter.format(expenses.retention)} weeks`;
-  resultElements.summaryRoi.textContent = `${numberFormatter.format(expenses.roi)}%`;
+  resultElements.clients.textContent = formatNumber(results.clients);
+  resultElements.leads.textContent = formatNumber(results.leads);
+  resultElements.prospects.textContent = formatNumber(results.prospects);
+  resultElements.summaryClients.textContent = formatNumber(expenses.projectedCustomers);
+  resultElements.summaryLeads.textContent = formatNumber(results.leads);
+  resultElements.summaryProspects.textContent = formatNumber(results.prospects);
+  resultElements.summaryRevenue.textContent = formatCurrency(values.revenue * Math.pow(1 - values.customerChurnRate / 100, values.periods));
+  resultElements.summaryExpenses.textContent = formatCurrency(expenses.expenses);
+  resultElements.summaryProfit.textContent = formatCurrency(expenses.profit);
+  resultElements.summaryRetention.textContent = `${formatNumber(expenses.retention)} ${getTimeUnitLabel()}s`;
+  resultElements.summaryRoi.textContent = `${formatNumber(expenses.roi)}%`;
+  resultElements.summaryTimeUnit.textContent = getTimeUnitLabel();
+  resultElements.summaryPeriodCount.textContent = formatNumber(values.periods);
+  resultElements.chartCaption.textContent = getTimeUnitLabel();
 }
 
 Object.values(calculatorInputs).forEach((input) => input.addEventListener("input", updateCalculator));
+calculatorInputs.language.addEventListener("change", () => {
+  currentLocale = calculatorInputs.language.value;
+  document.documentElement.lang = currentLocale.slice(0, 2);
+  updateCalculator();
+});
+calculatorInputs.currency.addEventListener("change", () => {
+  currentCurrency = calculatorInputs.currency.value;
+  updateCalculator();
+});
 updateCalculator();
 
 window.calculateCampaign = calculateCampaign;
