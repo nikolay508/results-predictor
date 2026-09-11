@@ -1,0 +1,11 @@
+We create an object called shop.
+In it the first thing we see is a na array containing strings which are products in the shop.
+After that we see prices object containing the prices of each product. There the product name is the key and the number is the price.
+Lastly we see an array locations containing information about different shop locations.
+In the locations array there are multiple objects containing the name, latitude, longtitude and the sales which is an array containing more array inside of it with the information of all the sales. Each array inside the sales array contains the product name and the quantity.
+
+After the shop object we see a variable called butterSales which goes through every location in the shop using map() and map creates a new array containing the result for each location. Inside there is one more variable called butterSale It searches the sales array for product name ‘butter’. find() returns the first matching sale.
+Next row we return a new object including location so the name of the city, quantity what amount of butter is sold. The ? : checks if the butterSale exists if so it uses the first index which is the quantity. If not it puts a 0 as the quantity.
+
+After that we print a heading with a console.log. 
+Below it we use a forEach loop to go through every object inside butterSale and then print the location and quantity of butter sold.
