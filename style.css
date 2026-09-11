@@ -76,11 +76,22 @@ h1 { margin-bottom: 0; font-family: "Space Grotesk", sans-serif; font-size: 13px
 .metric-section h2 { margin: 0 0 7px; font-family: "Space Grotesk", sans-serif; font-size: 13px; }
 .metric-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
 .metric-card { position: relative; min-height: 78px; padding: 12px 12px 10px; }
+.metric-card:focus-within { border-color: #9bb5d8; box-shadow: 0 0 0 2px rgba(47, 95, 169, .12); }
+.metric-label { display: block; margin: 0 0 11px; color: #66727d; font-size: 11px; font-weight: 500; }
+.metric-card input { width: 100%; padding: 5px 7px; border: 1px solid #e5e9ed; border-radius: 5px; color: var(--ink); background: #fbfcfd; font: inherit; font-size: 12px; }
+.metric-card input:focus { outline: 2px solid rgba(47, 95, 169, .2); outline-offset: 1px; }
 .metric-card h3 { margin: 0 0 11px; color: #66727d; font-size: 11px; font-weight: 500; }
 .metric-card h3 span { display: inline-grid; width: 12px; height: 12px; margin-left: 4px; border: 1px solid #aeb7bd; border-radius: 50%; place-items: center; color: #88939b; font-size: 8px; }
 output { position: absolute; top: 9px; right: 10px; min-width: 58px; padding: 4px 7px; border: 1px solid #edf0f2; border-radius: 5px; color: #65717a; text-align: right; }
 .slider-track { height: 12px; overflow: hidden; border-radius: 4px; background: #e6e8e9; }
 .slider-track b { display: block; height: 100%; border-radius: 4px; background: var(--green); }
+.calculator-results { margin-top: 1px; }
+.result-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }
+.result-card { min-height: 94px; padding: 12px; }
+.result-card span, .result-card small, .result-card strong { display: block; }
+.result-card span { color: #66727d; font-size: 11px; }
+.result-card strong { margin: 6px 0 5px; color: var(--blue); font-family: "Space Grotesk", sans-serif; font-size: 21px; }
+.result-card small { color: var(--muted); font-size: 9px; line-height: 1.35; }
 
 .summary-panel { padding: 14px 12px; }
 .summary-panel h2, .action-panel h2, .connect-panel h2 { display: flex; justify-content: space-between; margin: 0 0 16px; font-family: "Space Grotesk", sans-serif; font-size: 14px; }
@@ -94,5 +105,5 @@ dl { margin: 0; color: #67727b; font-size: 11px; } dl div { display: flex; justi
 .social-row { display: grid; grid-template-columns: repeat(2, 1fr); gap: 7px; } .social-row button { height: 26px; border: 0; border-radius: 5px; color: #fff; background: #2468bd; font-size: 16px; font-weight: 700; } .social-row button:nth-child(2) { background: #ed5a41; } .social-row button:nth-child(3) { background: #25374e; }
 
 @media (max-width: 900px) { .dashboard-shell { grid-template-columns: 145px minmax(0, 1fr); } .right-rail { grid-column: 1 / -1; display: grid; grid-template-columns: 1.5fr repeat(3, 1fr); align-items: start; } .summary-panel { grid-row: span 2; } }
-@media (max-width: 650px) { .dashboard-shell { display: block; padding: 10px; } .left-rail, .right-rail, .main-content { gap: 10px; } .left-rail { display: grid; grid-template-columns: 1fr 1fr; margin-bottom: 10px; } .brand { grid-column: 1 / -1; min-height: 135px; } .note-panel { margin-top: 0; } .credit { grid-column: 1 / -1; } .main-content { margin-bottom: 10px; } .right-rail { display: grid; grid-template-columns: 1fr 1fr; } .summary-panel { grid-column: 1 / -1; grid-row: auto; } }
+@media (max-width: 650px) { .dashboard-shell { display: block; padding: 10px; } .left-rail, .right-rail, .main-content { gap: 10px; } .left-rail { display: grid; grid-template-columns: 1fr 1fr; margin-bottom: 10px; } .brand { grid-column: 1 / -1; min-height: 135px; } .note-panel { margin-top: 0; } .credit { grid-column: 1 / -1; } .main-content { margin-bottom: 10px; } .right-rail { display: grid; grid-template-columns: 1fr 1fr; } .summary-panel { grid-column: 1 / -1; grid-row: auto; } .result-grid { grid-template-columns: 1fr; } }
 @media (max-width: 440px) { .left-rail, .right-rail, .metric-grid { display: block; } .left-rail > *, .right-rail > *, .metric-card { margin-bottom: 10px; } .chart-panel { padding-inline: 10px; } .chart-placeholder { margin-left: 25px; } }
